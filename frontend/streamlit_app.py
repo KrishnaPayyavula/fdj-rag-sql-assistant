@@ -332,6 +332,7 @@ def main():
     with col2:
         st.markdown('<div class="custom-card">', unsafe_allow_html=True)
         st.markdown("### Ask Your Question")
+        st.info("ℹ️ SQL and RAG queries are multi-step workflows. It may take up to 40 seconds to get a final response. Please be patient.")
         
         # Query input
         default_query = st.session_state.get('example_query', '')
