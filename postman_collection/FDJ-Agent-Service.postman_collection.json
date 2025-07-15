@@ -1,0 +1,287 @@
+{
+	"info": {
+		"_postman_id": "e7ed8c0f-6c1a-4527-9f4a-118761e281a9",
+		"name": "FDJ-Agent-Service",
+		"description": "The Hybrid RAG & Analytics Service is an intelligent query routing system that combines the power of Retrieval-Augmented Generation (RAG) with SQL analytics. It automatically classifies user queries and routes them to the appropriate processing engine - whether that's querying a SQL database for analytics, searching through documentation for game rules, or generating general responses.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12981973"
+	},
+	"item": [
+		{
+			"name": "Analytics Query",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"question\": \"What is the average turnover by segment?\",\n    \"persona\": \"product_owner\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/query",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"query"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Analytics Query",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"question\": \"What is the average turnover by segment?\",\n    \"persona\": \"product_owner\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/query",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"query"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Tue, 15 Jul 2025 13:40:25 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "3455"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"question\": \"What is the average turnover by segment?\",\n    \"query_type\": \"analytics\",\n    \"answer\": \"To provide a comprehensive analysis of average turnover by product segment, we need to consider not only the raw data but also the underlying system architecture and technical implementation that support this analysis.\\n\\n**Average Turnover Metrics by Segment:**\\n- High Segment: 1.42 \\n- Medium Segment: 1.10 \\n- Low Segment: 0.32 \\n\\nThese values indicate the average turnover rates across the product categories. However, when evaluating performance implications, it’s crucial to examine how the data management and retrieval processes are architected in our system.\\n\\n**System Architecture Considerations:**\\n1. **Data Storage and Retrieval**: The turnover metrics are sourced from a distributed database system using a combination of SQL for transactional data and a NoSQL solution for analytics purposes. This hybrid approach allows us to efficiently manage large volumes of data associated with product transactions, enabling quick access to turnover metrics.\\n\\n2. **Caching Layer**: We utilize an in-memory caching layer (e.g., Redis) to enhance read performance. This approach minimizes latency when pulling turnover data and allows near real-time analysis, benefiting high-traffic queries related to product performance.\\n\\n3. **ETL Processes**: Our Extract, Transform, Load (ETL) processes are optimized for batch processing during off-peak hours to consolidate historical turnover data while maintaining real-time processing capabilities for current transactions. This dual approach helps in reducing the load on the main database and improves overall system responsiveness.\\n\\n**Performance Implications and Trade-offs:**\\nWhile the High segment exhibits an average turnover of 1.42, indicating a strong market response, the system must balance data freshness with processing time. A trade-off exists between real-time data analysis and the resource allocation for processing large datasets. To mitigate this, we employ asynchronous processing for turnover calculations, enabling the system to scale efficiently without compromising performance.\\n\\n**Scalability Considerations:**\\nTo ensure scalability, we've designed the architecture to facilitate horizontal scaling. This includes:\\n- Adding more nodes to our distributed database to handle increased load during peak seasons.\\n- Utilizing microservices for turnover calculations, allowing independent scaling of components based on traffic demand.\\n\\n**Data-Driven Insights:**\\nThe average turnover rates suggest room for performance enhancement in the Low segment, currently at 0.32. By analyzing the customer engagement metrics and conversion rates associated with this segment, we can identify potential improvements in product positioning or marketing strategies. For example, if real-time A/B testing is employed, we can dynamically adjust listings based on turnover data via our analytics pipeline, leading to potential increases in the Low segment's performance.\\n\\nIn summary, the architecture supporting our turnover analysis is designed for efficiency, scalability, and real-time data insights, enabling informed decision-making while balancing the performance trade-offs inherent in data processing.\",\n    \"sql_query\": \"SELECT\\n  segment,\\n  AVG(turnover) AS avg_turnover\\nFROM products\\nGROUP BY segment\\nORDER BY avg_turnover DESC\\nLIMIT 10;\",\n    \"results\": null,\n    \"context\": null,\n    \"error\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Semantics Query",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"question\": \"How do players win at Lucky 7 Slots?\",\n    \"persona\": \"marketing\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/query",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"query"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Semantics Query",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"question\": \"How do players win at Lucky 7 Slots?\",\n    \"persona\": \"marketing\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/query",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"query"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Tue, 15 Jul 2025 13:42:16 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "1115"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"question\": \"How do players win at Lucky 7 Slots?\",\n    \"query_type\": \"semantic\",\n    \"answer\": \"Players win at Lucky 7 Slots by spinning the 3 reels and landing matching symbols on the paylines. The standout feature is the Wild Symbol, represented by the number 7, which expands to cover the entire reel when it contributes to a winning combination. This can significantly enhance the chances of winning, as it not only increases the number of matching symbols but also leads to higher payouts. The maximum payout is an impressive 500 times your stake, offering players a thrilling experience and motivation to keep playing.\",\n    \"sql_query\": null,\n    \"results\": null,\n    \"context\": [\n        {\n            \"title\": \"Lucky 7 Slots\",\n            \"content\": \"- **Reels:** 3\\n- **Wild Symbol:** 7 expands to cover entire reel on a win\\n- **Max Payout:** 500× your stake...\"\n        },\n        {\n            \"title\": \"Cosmic Plinko\",\n            \"content\": \"- **Levels:** 8\\n- **Prize Multiplier:** 0.5× to 100×\\n- **Bonus Trigger:** Hit center slot...\"\n        },\n        {\n            \"title\": \"Mega Fortune Wheel\",\n            \"content\": \"- **Bonus Game:** Spin the wheel to win jackpots\\n- **Jackpots:** Mini, Major, Mega\\n- **Min Stake:** €0.10...\"\n        }\n    ],\n    \"error\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "General Query",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"question\": \"How to overcome stage fear\",\n    \"persona\": \"marketing\"\n  }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8000/query",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"query"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "General Query",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"question\": \"How to overcome stage fear\",\n    \"persona\": \"marketing\"\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/query",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"query"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "date",
+							"value": "Tue, 15 Jul 2025 13:43:53 GMT"
+						},
+						{
+							"key": "server",
+							"value": "uvicorn"
+						},
+						{
+							"key": "content-length",
+							"value": "1508"
+						},
+						{
+							"key": "content-type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"question\": \"How to overcome stage fear\",\n    \"query_type\": \"general\",\n    \"answer\": \"Overcoming stage fear involves a combination of preparation, mindset shifts, and practical strategies. Here are some effective tips:\\n\\n1. **Practice Thoroughly**: Familiarity breeds confidence. Rehearse your material multiple times until you're comfortable.\\n\\n2. **Visualize Success**: Imagine yourself successfully presenting or performing. This positive visualization can reduce anxiety.\\n\\n3. **Focus on the Message**: Shift your attention from yourself to what you want to communicate. Concentrating on the value you provide can lessen self-consciousness.\\n\\n4. **Breathe Deeply**: Use deep breathing techniques to calm your nerves before and during your performance. Inhale deeply, hold for a few seconds, and exhale slowly.\\n\\n5. **Start Small**: Gain confidence by practicing in front of smaller groups or friends before progressing to larger audiences.\\n\\n6. **Accept Imperfection**: Understand that mistakes can happen, and it's okay. Most audiences are forgiving and supportive.\\n\\n7. **Stay Present**: Focus on your surroundings and the audience rather than thinking about what could go wrong. \\n\\n8. **Join a Supportive Group**: Consider joining public speaking clubs like Toastmasters, where you can practice in a supportive environment.\\n\\nBy incorporating these strategies, you can gradually reduce your stage fear and improve your performance confidence.\",\n    \"sql_query\": null,\n    \"results\": null,\n    \"context\": null,\n    \"error\": null\n}"
+				}
+			]
+		}
+	]
+}
