@@ -297,8 +297,8 @@ def main():
         # Model selection
         model = st.selectbox(
             "Select AI Model",
-            options=["gpt-4o-mini", "gpt-4o"],
-            format_func=lambda x: "GPT-4 Mini (Faster)" if x == "gpt-4o-mini" else "GPT-4 (More Capable)",
+            options=["gpt-4o-mini"],
+            format_func=lambda x: "GPT-4o Mini (Faster)",
             help="Choose the AI model for processing"
         )
         
