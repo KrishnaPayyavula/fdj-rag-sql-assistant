@@ -81,10 +81,15 @@ git clone https://github.com/KrishnaPayyavula/fdj-rag-sql-assistant.git
 cd fdj-rag-sql-assistant
 ```
 
-2. **Set up environment variables**
+
+2. **Set up environment variables and local secrets**
 ```bash
-# Create .env file
+# Create .env file for backend
 echo "OPENAI_API_KEY=your-api-key-here" > .env
+
+# (Optional, for local frontend) Add Streamlit secrets/config
+mkdir -p frontend/.streamlit
+echo 'API_URL = "http://localhost:8000"' > frontend/.streamlit/secrets.toml
 ```
 
 3. **Install dependencies**
