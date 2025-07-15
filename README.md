@@ -18,7 +18,7 @@ The Hybrid RAG & Analytics Service is an intelligent query routing system that c
 
 ### SQL Agent Flow
 
-<img src="./images/architecture.png" width="800" alt="flow">
+<img src="./images/architecture_1.png"  alt="flow">
 
 
 ## Core Architecture
