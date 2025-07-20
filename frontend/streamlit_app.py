@@ -120,7 +120,7 @@ st.markdown("""
     
     /* Context cards */
     .context-card {
-        background-color: #334155;
+        background-color: #f0f3f7;
         border: 1px solid #475569;
         border-radius: 8px;
         padding: 1.5rem;
