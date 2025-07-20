@@ -76,17 +76,17 @@ st.markdown("""
     
     /* Select box styling */
     .stSelectbox > div > div {
-        background-color: #334155;
+        background-color: #f7f7f7;
         border: 1px solid #475569;
         border-radius: 8px;
     }
     
     /* Text area styling */
     .stTextArea > div > div > textarea {
-        background-color: #334155;
+        background-color: #f7f7f7;
         border: 1px solid #475569;
         border-radius: 8px;
-        color: #f1f5f9;
+        color: #1e293b;
     }
     
     /* Headers */
@@ -157,12 +157,12 @@ st.markdown("""
     
     /* Markdown content styling */
     .markdown-content {
-        color: #f1f5f9;
+        color: #1e293b;
         line-height: 1.8;
     }
     
     .markdown-content strong {
-        color: #f1f5f9;
+        color: #1e293b;
         font-weight: 600;
     }
     
@@ -283,7 +283,6 @@ def main():
     col1, col2 = st.columns([1, 2])
     
     with col1:
-        st.markdown('<div class="custom-card">', unsafe_allow_html=True)
         st.markdown("### Query Configuration")
         
         # Persona selection
@@ -327,10 +326,8 @@ def main():
                     if st.button(query, key=f"example_{query}"):
                         st.session_state.example_query = query
         
-        st.markdown('</div>', unsafe_allow_html=True)
     
     with col2:
-        st.markdown('<div class="custom-card">', unsafe_allow_html=True)
         st.markdown("### Ask Your Question")
         st.info("ℹ️ SQL and RAG queries are multi-step workflows. It may take up to 40 seconds to get a final response. Please be patient.")
         
@@ -371,13 +368,10 @@ def main():
             else:
                 st.warning("Please enter a question")
         
-        st.markdown('</div>', unsafe_allow_html=True)
         
         # Display response
         if st.session_state.current_response and not st.session_state.loading:
-            st.markdown('<div class="custom-card">', unsafe_allow_html=True)
             display_response(st.session_state.current_response)
-            st.markdown('</div>', unsafe_allow_html=True)
     
     # Query History (in sidebar)
     with st.sidebar:
